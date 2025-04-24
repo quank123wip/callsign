@@ -17,7 +17,7 @@ export interface INode {
 export interface IMarkup {
 	nodeType: "markup";
 	type: string;
-	parent: INode;
+	parent?: INode;
 	value: string;
 	rawRange: {
 		start: IRawPosition;
@@ -44,6 +44,38 @@ export class Node implements INode {
 		this.type = type || "";
 		this.parent = parent;
 		this.children = children || [];
+		this.rawRange = rawRange || {
+			start: {
+				column: 0,
+				lineNumber: 0,
+			},
+			end: {
+				column: 0,
+				lineNumber: 0,
+			},
+		};
+	}
+}
+
+export class Markup implements IMarkup {
+	editorState: EditorState;
+	nodeType: "markup";
+	type: string;
+	parent?: INode;
+	value: string;
+	rawRange: { start: IRawPosition; end: IRawPosition };
+	constructor(
+		editorState: EditorState,
+		type?: string,
+		parent?: INode,
+		value?: string,
+		rawRange?: { start: IRawPosition; end: IRawPosition },
+	) {
+		this.editorState = editorState;
+		this.nodeType = "markup";
+		this.type = type || "";
+		this.parent = parent;
+		this.value = value || "";
 		this.rawRange = rawRange || {
 			start: {
 				column: 0,

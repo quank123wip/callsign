@@ -1,14 +1,13 @@
-import type { ZodSchema } from "zod";
+import { EventHandler } from "./handler";
 
 export type IRawEventPayload = unknown;
 
-export type IEventList = Array<IEventListItem<any>>;
+export type IEventList = Array<IEventListItem<IRawEventPayload>>;
 
-export interface IEventListItem<T> {
+export interface IEventListItem<T extends IRawEventPayload> {
 	eventId: string;
 	target: Document;
 	eventName: string;
-	eventPayloadSchema: ZodSchema<T>;
-	listener: (event: T) => void;
+	listener: EventHandler<T>;
 	capture: boolean;
 }
