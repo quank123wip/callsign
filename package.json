@@ -1,0 +1,26 @@
+{
+  "name": "callsign",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npx vitest"
+  },
+  "keywords": [],
+  "author": "Quank123WIP",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "typescript": "^5.8.3",
+    "unified": "^11.0.5",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitest/coverage-v8": "^3.1.2",
+    "vite": "^6.3.2",
+    "vitest": "^3.1.2"
+  }
+}
