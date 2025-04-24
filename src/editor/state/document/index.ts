@@ -1,3 +1,4 @@
+import { EditorState } from "..";
 import { IRawPosition } from "../position";
 
 export type rawMarkdown = string;
@@ -21,6 +22,32 @@ export interface IMarkup {
     rawRange: {
         start: IRawPosition;
         end: IRawPosition;
+    }
+}
+
+export class Node implements INode {
+    editorState: EditorState;
+    nodeType: 'node';
+    type: string;
+    parent?: INode;
+    children: (INode | IMarkup)[];
+    rawRange: { start: IRawPosition; end: IRawPosition; };
+    constructor (editorState: EditorState, type?: string, parent?: INode, children?: (INode | IMarkup)[], rawRange?: { start: IRawPosition; end: IRawPosition; }) {
+        this.editorState = editorState;
+        this.nodeType = 'node';
+        this.type = type || '';
+        this.parent = parent;
+        this.children = children || [];
+        this.rawRange = rawRange || {
+            start: {
+                column: 0,
+                lineNumber: 0,
+            },
+            end: {
+                column: 0,
+                lineNumber: 0,
+            }
+        }
     }
 }
 

@@ -1,4 +1,5 @@
-import { INode } from ".";
+import { IMarkup, INode, Node } from ".";
+import { EditorState, IRawPosition } from "..";
 
 export interface IBlockquoteNode extends INode {
     type: 'blockquote';
@@ -70,4 +71,18 @@ export interface ITableRowNode extends INode {
 
 export interface ITableCellNode extends INode {
     type: 'tableCell';
+}
+
+export class BlockquoteNode extends Node implements IBlockquoteNode {
+    type: 'blockquote';
+    constructor (editorState: EditorState, parent?: INode, children?: (INode | IMarkup)[], rawRange?: { start: IRawPosition; end: IRawPosition; }) {
+        super(
+            editorState,
+            'blockquote',
+            parent,
+            children,
+            rawRange
+        );
+        this.type = 'blockquote';
+    }
 }
