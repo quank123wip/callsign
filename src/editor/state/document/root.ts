@@ -1,21 +1,24 @@
 import { Root } from "remark-parse/lib";
 import type { EditorState } from "..";
 import type { IRawPosition } from "../position";
-import type { IMarkup, INode, ITextMarkup } from "./";
+import { Node, type IMarkup, type INode, type ITextMarkup } from "./";
 import { transformCommonmark } from "./transformer";
 
 export interface IRootNode extends INode {
 	type: "root";
 }
 
-export class RootNode implements IRootNode {
+export class RootNode extends Node implements IRootNode {
 	nodeType: "node";
 	type: "root";
+	parent: undefined;
 	children: (INode | IMarkup)[];
 	rawRange: { start: IRawPosition; end: IRawPosition };
 	constructor(editorState: EditorState) {
+		super(editorState, "root", undefined)
 		this.type = "root";
 		this.nodeType = "node";
+		this.parent = undefined;
 		this.children = [
 			{
 				type: "text",
