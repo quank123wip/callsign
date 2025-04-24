@@ -1,5 +1,7 @@
 import { IRawEventPayload } from "./spec";
 
+
+//TODO: Refactor EventHandler logics.
 export interface IEventHandler<T extends IRawEventPayload>{
 	eventName: string;
 	handler: (payload: T) => void;

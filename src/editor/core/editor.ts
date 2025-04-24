@@ -7,7 +7,7 @@ export interface IEditor {
 	container: HTMLElement;
 	config: IEditorConfig;
 	markdown: rawMarkdown;
-	eventHandler: IEventHandler;
+	eventHandler: IEventHandler<any>[];
 	uiHelper: IUIHelper;
 }
 
@@ -15,14 +15,14 @@ export class Editor implements IEditor {
 	container: HTMLElement;
 	config: IEditorConfig;
 	markdown: rawMarkdown;
-	eventHandler: IEventHandler;
+	eventHandler: IEventHandler<any>[];
 	uiHelper: IUIHelper;
 
 	constructor(containerElement: HTMLElement, config: IEditorConfig) {
 		this.container = getEditorElement(containerElement);
 		this.config = Object.assign({}, DefaultEditorConfig, config);
 		this.markdown = config.markdown || "";
-		this.eventHandler = new EventHandler();
+		this.eventHandler = [];
 		this.uiHelper = new UIHelper();
 	}
 }
