@@ -1,7 +1,5 @@
-export interface IUIHelper {
-
-}
+export interface IUIHelper {}
 
 export class UIHelper {
-    constructor () {}
+	constructor() {}
 }

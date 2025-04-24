@@ -1,7 +1,5 @@
-export interface ITransaction {
-
-}
+export interface ITransaction {}
 
 export class Transaction implements ITransaction {
-    constructor () {}
+	constructor() {}
 }

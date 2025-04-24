@@ -1,7 +1,5 @@
-export interface IEventHandler {
-
-}
+export interface IEventHandler {}
 
 export class EventHandler {
-    constructor () {}
+	constructor() {}
 }

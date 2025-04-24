@@ -2,87 +2,86 @@ import { IMarkup, INode, Node } from ".";
 import { EditorState, IRawPosition } from "..";
 
 export interface IBlockquoteNode extends INode {
-    type: 'blockquote';
+	type: "blockquote";
 }
 
 export interface IEmphasisNode extends INode {
-    type: 'emphasis';
+	type: "emphasis";
 }
 
 export interface IHeadingNode extends INode {
-    type: 'heading';
-    depth: 1 | 2 | 3 | 4 | 5 | 6;
+	type: "heading";
+	depth: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 export interface ILinkNode extends INode {
-    type: 'link';
-    url: string;
-    title?: string;
+	type: "link";
+	url: string;
+	title?: string;
 }
 
 // Not implementing LinkReference
 
 export interface IListNode extends INode {
-    type: 'list';
-    ordered?: boolean;
-    start?: number;
-    spread?: boolean;
+	type: "list";
+	ordered?: boolean;
+	start?: number;
+	spread?: boolean;
 }
 
 export interface IListItemNode extends INode {
-    type: 'listItem';
-    spread?: boolean;
+	type: "listItem";
+	spread?: boolean;
 }
 
 export interface IListItemGfmNode extends INode {
-    type: 'listItem';
-    spread?: boolean;
-    checked?: boolean;
+	type: "listItem";
+	spread?: boolean;
+	checked?: boolean;
 }
 
 export interface IParagraphNode extends INode {
-    type: 'paragraph';
+	type: "paragraph";
 }
 
 export interface IStrongNode extends INode {
-    type: 'strong';
+	type: "strong";
 }
 
 export interface IDeleteNode extends INode {
-    type: 'delete';
+	type: "delete";
 }
 
 export interface IFootnoteDefinitionNode extends INode {
-    type: 'footnoteDefinition';
-    identifier: string;
-    label?: string;
+	type: "footnoteDefinition";
+	identifier: string;
+	label?: string;
 }
 
-type alignType = 'left' | 'right' | 'center' | null;
+type alignType = "left" | "right" | "center" | null;
 
 export interface ITableNode extends INode {
-    type: 'table';
-    align?: alignType;
+	type: "table";
+	align?: alignType;
 }
 
 export interface ITableRowNode extends INode {
-    type: 'tableRow';
+	type: "tableRow";
 }
 
 export interface ITableCellNode extends INode {
-    type: 'tableCell';
+	type: "tableCell";
 }
 
 export class BlockquoteNode extends Node implements IBlockquoteNode {
-    type: 'blockquote';
-    constructor (editorState: EditorState, parent?: INode, children?: (INode | IMarkup)[], rawRange?: { start: IRawPosition; end: IRawPosition; }) {
-        super(
-            editorState,
-            'blockquote',
-            parent,
-            children,
-            rawRange
-        );
-        this.type = 'blockquote';
-    }
+	type: "blockquote";
+	constructor(
+		editorState: EditorState,
+		parent?: INode,
+		children?: (INode | IMarkup)[],
+		rawRange?: { start: IRawPosition; end: IRawPosition },
+	) {
+		super(editorState, "blockquote", parent, children, rawRange);
+		this.type = "blockquote";
+	}
 }

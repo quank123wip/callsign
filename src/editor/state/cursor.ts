@@ -2,67 +2,71 @@ import { EditorState, INode, IMarkup } from ".";
 import { Position } from "./position";
 
 export interface ICursorState {
-  type: "cursor";
-  position: Position;
+	type: "cursor";
+	position: Position;
 }
 
 export interface ISelectionState {
-  type: "selection";
-  position: {
-    anchor: Position;
-    cursor: Position;
-  };
+	type: "selection";
+	position: {
+		anchor: Position;
+		cursor: Position;
+	};
 }
 
 // Selecting single whole block like an image.
 export interface IBlockSelectionState {
-    type: "blockSelection";
-    position: INode | IMarkup;
+	type: "blockSelection";
+	position: INode | IMarkup;
 }
 
 export class CursorState implements ICursorState {
-  editorState: EditorState
-  type: "cursor";
-  position: Position;
-  constructor (editorState: EditorState, position: Position) {
-    this.editorState = editorState;
-    this.type = "cursor";
-    this.position = position;
-  }
+	editorState: EditorState;
+	type: "cursor";
+	position: Position;
+	constructor(editorState: EditorState, position: Position) {
+		this.editorState = editorState;
+		this.type = "cursor";
+		this.position = position;
+	}
 }
 
 export class SelectionState implements ISelectionState {
-  editorState: EditorState
-  type: "selection";
-  position: {
-    anchor: Position;
-    cursor: Position;
-  };
-  constructor (editorState: EditorState, anchor?: Position, cursor?: Position) {
-    this.editorState = editorState;
-    this.type = "selection";
-    if (anchor && cursor) {
-      this.position = {
-        anchor,
-        cursor,
-      };
-    }
-    this.position = {
-      anchor: new Position(editorState),
-      cursor: new Position(editorState),
-    };
-  }
+	editorState: EditorState;
+	type: "selection";
+	position: {
+		anchor: Position;
+		cursor: Position;
+	};
+	constructor(
+		editorState: EditorState,
+		anchor?: Position,
+		cursor?: Position,
+	) {
+		this.editorState = editorState;
+		this.type = "selection";
+		if (anchor && cursor) {
+			this.position = {
+				anchor,
+				cursor,
+			};
+		}
+		this.position = {
+			anchor: new Position(editorState),
+			cursor: new Position(editorState),
+		};
+	}
 }
 
 export class BlockSelectionState implements IBlockSelectionState {
-    editorState: EditorState;
-    type: "blockSelection";
-    position: INode | IMarkup;
-    constructor (editorState: EditorState, node: INode | IMarkup) {
-        this.editorState = editorState;
-        this.type = "blockSelection";
-        this.position = node;
-    }
+	editorState: EditorState;
+	type: "blockSelection";
+	position: INode | IMarkup;
+	constructor(editorState: EditorState, node: INode | IMarkup) {
+		this.editorState = editorState;
+		this.type = "blockSelection";
+		this.position = node;
+	}
 }
 
 /**

@@ -1,9 +1,9 @@
 import { rawMarkdown } from "../state";
 
 export interface IEditorConfig {
-    markdown?: rawMarkdown;
+	markdown?: rawMarkdown;
 }
 
 export const DefaultEditorConfig: IEditorConfig = {
-    markdown: '',
-}
+	markdown: "",
+};
