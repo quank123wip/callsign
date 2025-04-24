@@ -1,6 +1,6 @@
 import { Root } from "remark-parse/lib";
 import type { EditorState } from "..";
-import type { RawPosition } from "../position";
+import type { IRawPosition } from "../position";
 import type { IMarkup, INode, ITextMarkup } from "./";
 import { transformCommonmark } from "./transformer";
 
@@ -12,7 +12,7 @@ export class RootNode implements IRootNode {
 	nodeType: "node";
 	type: "root";
 	children: (INode | IMarkup)[];
-	rawRange: { start: RawPosition; end: RawPosition };
+	rawRange: { start: IRawPosition; end: IRawPosition };
 	constructor(editorState: EditorState) {
 		this.type = "root";
 		this.nodeType = "node";
@@ -24,12 +24,10 @@ export class RootNode implements IRootNode {
 		];
 		this.rawRange = {
 			start: {
-				editorState,
 				column: 0,
 				lineNumber: 0,
 			},
 			end: {
-				editorState,
 				column: 0,
 				lineNumber: 0,
 			},
@@ -58,6 +56,17 @@ export class RootNode implements IRootNode {
 		
 		for (let child of ASTRoot.children) {
 			newRoot.children.push(transformCommonmark(editorState, child, newRoot));
+		}
+
+		newRoot.rawRange = {
+			start: {
+				lineNumber: ASTRoot.position?.start.line || 0,
+				column: ASTRoot.position?.start.column || 0,
+			},
+			end: {
+				lineNumber: ASTRoot.position?.end.line || 0,
+				column: ASTRoot.position?.end.column || 0,
+			},
 		}
 
 		return newRoot;

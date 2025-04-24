@@ -4,14 +4,14 @@ import { RootNode } from "./document";
 import { MarkdownParser } from "./parser";
 
 export class EditorState {
-	editor: Editor;
-	config: IEditorConfig;
+	editor?: Editor;
+	config?: IEditorConfig;
 	cursor: Cursor;
 	astRoot: RootNode;
 	rawDocument: string;
 	markdownParser: MarkdownParser; // May replaced by composition API in the future.
 	// TODO: History Module
-	constructor(editor: Editor, config: IEditorConfig, markdown?: string) {
+	constructor(editor?: Editor, config?: IEditorConfig, markdown?: string) {
 		this.editor = editor;
 		this.config = config;
 
