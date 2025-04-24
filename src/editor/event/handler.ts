@@ -1,4 +1,4 @@
-export interface IEventHandler {}
+export type IEventHandler = {}
 
 export class EventHandler {
 	constructor() {}

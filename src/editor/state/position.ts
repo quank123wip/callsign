@@ -1,5 +1,5 @@
-import { EditorState } from ".";
-import { getMarkupOffsetFromRawpos, IMarkup, travelNext } from "./document";
+import type { EditorState } from ".";
+import { getMarkupOffsetFromRawpos, type IMarkup, travelNext } from "./document";
 
 export interface IRawPosition {
 	column: number;

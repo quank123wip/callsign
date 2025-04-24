@@ -1,4 +1,4 @@
-export interface IUIHelper {}
+export type IUIHelper = {}
 
 export class UIHelper {
 	constructor() {}

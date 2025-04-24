@@ -1,5 +1,5 @@
-import { Editor, IEditorConfig } from "../core";
-import { Cursor } from "./cursor";
+import type { Editor, IEditorConfig } from "../core";
+import type { Cursor } from "./cursor";
 import { RootNode } from "./document";
 
 export class EditorState {

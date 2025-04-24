@@ -1,7 +1,7 @@
-import { EventHandler, IEventHandler } from "../event/handler";
-import { rawMarkdown } from "../state";
-import { IUIHelper, UIHelper } from "../ui";
-import { DefaultEditorConfig, IEditorConfig } from "./config";
+import { EventHandler, type IEventHandler } from "../event/handler";
+import type { rawMarkdown } from "../state";
+import { type IUIHelper, UIHelper } from "../ui";
+import { DefaultEditorConfig, type IEditorConfig } from "./config";
 
 export interface IEditor {
 	container: HTMLElement;

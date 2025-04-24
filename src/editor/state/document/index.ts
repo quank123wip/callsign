@@ -1,5 +1,5 @@
-import { EditorState } from "..";
-import { IRawPosition } from "../position";
+import type { EditorState } from "..";
+import type { IRawPosition } from "../position";
 
 export type rawMarkdown = string;
 

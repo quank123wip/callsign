@@ -1,4 +1,4 @@
-import { IMarkup } from ".";
+import type { IMarkup } from ".";
 
 export interface ITextMarkup extends IMarkup {
 	type: "text";

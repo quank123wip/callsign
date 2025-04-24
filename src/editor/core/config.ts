@@ -1,4 +1,4 @@
-import { rawMarkdown } from "../state";
+import type { rawMarkdown } from "../state";
 
 export interface IEditorConfig {
 	markdown?: rawMarkdown;

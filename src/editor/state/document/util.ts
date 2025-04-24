@@ -1,6 +1,6 @@
-import { IMarkup, INode } from ".";
-import { EditorState } from "..";
-import { IRawPosition } from "../position";
+import type { IMarkup, INode } from ".";
+import type { EditorState } from "..";
+import type { IRawPosition } from "../position";
 
 export const travelPrev = (node: IMarkup): IMarkup => {
 	let currentNode: INode | IMarkup = node;
@@ -102,7 +102,7 @@ export const getMarkupOffsetFromRawpos = (
 	rawPos: IRawPosition,
 ): number => {
 	let offset = 0;
-	let lines = editorState.rawDocument.match(/.*?(\r\n|\n)|.+$/g) || [""];
+	const lines = editorState.rawDocument.match(/.*?(\r\n|\n)|.+$/g) || [""];
 
 	for (let i = node.rawRange.start.lineNumber; i < rawPos.lineNumber; i++)
 		offset += lines[i].length;

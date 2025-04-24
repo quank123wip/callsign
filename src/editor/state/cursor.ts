@@ -1,4 +1,4 @@
-import { EditorState, INode, IMarkup } from ".";
+import type { EditorState, INode, IMarkup } from ".";
 import { Position } from "./position";
 
 export interface ICursorState {

@@ -1,5 +1,5 @@
-import { IMarkup, INode, Node } from ".";
-import { EditorState, IRawPosition } from "..";
+import { type IMarkup, type INode, Node } from ".";
+import type { EditorState, IRawPosition } from "..";
 
 export interface IBlockquoteNode extends INode {
 	type: "blockquote";
