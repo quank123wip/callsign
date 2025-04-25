@@ -76,3 +76,6 @@ export const render = (node: (INode | IMarkup)): VNode | void => {
         }
     }
 }
+
+export * from "./markup";
+export * from "./node";

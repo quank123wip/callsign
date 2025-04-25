@@ -1,5 +1,5 @@
 import { EventHandler, type IEventHandler } from "../event/handler";
-import type { rawMarkdown } from "../state";
+import { EditorState, rawMarkdown } from "../state";
 import { type IUIHelper, UIHelper } from "../ui";
 import { DefaultEditorConfig, type IEditorConfig } from "./config";
 
@@ -8,6 +8,7 @@ export interface IEditor {
 	config: IEditorConfig;
 	markdown: rawMarkdown;
 	eventHandler: IEventHandler<any>[];
+	state: EditorState;
 	uiHelper: IUIHelper;
 }
 
@@ -16,6 +17,7 @@ export class Editor implements IEditor {
 	config: IEditorConfig;
 	markdown: rawMarkdown;
 	eventHandler: IEventHandler<any>[];
+	state: EditorState;
 	uiHelper: IUIHelper;
 
 	constructor(containerElement: HTMLElement, config: IEditorConfig) {
@@ -23,7 +25,8 @@ export class Editor implements IEditor {
 		this.config = Object.assign({}, DefaultEditorConfig, config);
 		this.markdown = config.markdown || "";
 		this.eventHandler = [];
-		this.uiHelper = new UIHelper();
+		this.state = new EditorState(this, config, this.markdown);
+		this.uiHelper = new UIHelper(this);
 	}
 }
 

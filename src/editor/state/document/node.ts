@@ -1,4 +1,4 @@
-import { type IMarkup, type INode, Node } from ".";
+import { type IMarkup, type INode, Node } from "./base";
 import type { EditorState, IRawPosition } from "..";
 
 export interface IBlockquoteNode extends INode {

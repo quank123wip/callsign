@@ -1,4 +1,4 @@
-import { INode, Markup, type IMarkup } from ".";
+import { INode, Markup, type IMarkup } from "./base";
 import { EditorState, IRawPosition } from "..";
 
 export interface ITextMarkup extends IMarkup {
