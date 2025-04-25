@@ -53,7 +53,7 @@ export interface IFootnoteReferenceMarkup extends IMarkup {
 	label?: string;
 }
 
-export interface IThematicBreak extends IMarkup {
+export interface IThematicBreakMarkup extends IMarkup {
 	type: "thematicBreak";
 	value: "";
 }
@@ -214,7 +214,7 @@ export class FootnoteReferenceMarkup extends Markup implements IFootnoteReferenc
 	}
 }
 
-export class ThematicBreakMarkup extends Markup implements IThematicBreak {
+export class ThematicBreakMarkup extends Markup implements IThematicBreakMarkup {
 	type: "thematicBreak";
 	value: "";
 

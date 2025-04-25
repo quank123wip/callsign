@@ -14,11 +14,13 @@
   "description": "",
   "dependencies": {
     "@types/mdast": "^4.0.4",
+    "micromark-util-sanitize-uri": "^2.0.1",
     "remark": "^15.0.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "typescript": "^5.8.3",
     "unified": "^11.0.5",
+    "vue": "^3.5.13",
     "zod": "^3.24.3"
   },
   "devDependencies": {
